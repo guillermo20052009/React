@@ -1,18 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonList from './components/PokemonList'
+import PokemonDetailsprops from './components/PokemonDetails'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selectedPokemon, setSelectedPokemon] = useState();
 
   return (
     <>
-     <h2>Pokemon Project</h2>
-     <PokemonList></PokemonList>
+      {selectedPokemon && (
+        <div>
+          <h2>Pokemon Seleccionado</h2>
+          {/* Asegúrate de que PokemonDetails esté importado correctamente */}
+          <PokemonDetailsprops pokemon={selectedPokemon} />
+        </div>
+      )}
+      <h2>Lista de Pokemon</h2>
+      <PokemonList selectPokemon={setSelectedPokemon} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
