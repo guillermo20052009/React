@@ -1,0 +1,23 @@
+.button-panel {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en varias filas */
+    padding: 30px;
+    width: 90vw; /* 90% del ancho de la pantalla */
+    max-width: 600px; /* Máximo de 600px de ancho */
+    margin: 0 auto; /* Centrado del panel */
+  }
+  
+  button {
+    flex: 0 0 calc(25%); /* Cada botón ocupa el 25% del ancho sin espacio entre ellos */
+    height: 100px; /* Altura mayor para los botones */
+    font-size: 30px; /* Aumenta el tamaño del texto */
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
