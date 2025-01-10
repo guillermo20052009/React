@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+.recuadro {
+  width: 90vw; /* 90% del ancho de la pantalla */
+  max-width: 450px; /* Máximo de 600px de ancho */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 20px; /* Espacio interno */
+  border: 2px solid #ccc; /* Borde */
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: #686868; /* Fondo blanco */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}

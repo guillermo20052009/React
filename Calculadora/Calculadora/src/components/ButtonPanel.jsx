@@ -2,21 +2,28 @@ import React from 'react';
 import Button from './Button'; 
 import './buttons.css';  
 
-function ButtonPanel({ onClick }) {
+function ButtonPanel(props) {
   const buttons = [
-    ['7', '8', '9', '/'],
-    ['4', '5', '6', '*'],
-    ['1', '2', '3', '-'],
-    ['0', '.', '=', '+'],
-    ['C', '(', ')', '%'],
+    ['AC', '+/-', '%', '/'],
+    ['7', '8', '9', '*'],
+    ['4', '5', '6', '-'],
+    ['1', '2', '3', '+'],
+    ['0', '.', '='],
   ];
+
+  const columns = buttons[0].map((_, colIndex) => buttons.map(row => row[colIndex]));
 
   return (
     <div className="button-panel">
-      {buttons.map((row, rowIndex) => (
-        <div className="button-row" key={rowIndex}>
-          {row.map((button, buttonIndex) => (
-            <Button key={buttonIndex} label={button} onClick={() => onClick(button)} />
+      {columns.map((col, colIndex) => (
+        <div className="button-column" key={colIndex}>
+          {col.map((button, buttonIndex) => (
+            <Button 
+              key={buttonIndex} 
+              label={button} 
+              onClick={() => props.onClick(button)} 
+              className={colIndex === 3 ? 'orange-button' : ''} 
+            />
           ))}
         </div>
       ))}
