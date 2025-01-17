@@ -1,18 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import ButtonPanel from './components/ButtonPanel'
-import Cuadro from './components/Cuadro'
 import Calculadora from './components/Calculadora'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
   return (
     <>
+    <div className='container mx-auto px-0 justify-content-center'>
       <div className='recuadro'>
       <Calculadora></Calculadora>
       </div>
+    </div>
     </>
   )
 }

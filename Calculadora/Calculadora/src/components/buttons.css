@@ -1,8 +1,6 @@
 .button-panel {
   display: flex;
   flex-wrap: wrap; /* Permite que los botones se ajusten en varias filas */
-  padding: 30px;
-  width: 90vw; /* 90% del ancho de la pantalla */
   max-width: 350px; /* Máximo de 600px de ancho */
   margin: 0 auto; /* Centrado del panel */
   justify-content: center; /* Centra los botones horizontalmente */
@@ -19,7 +17,7 @@ button {
   width: 60px; /* Ancho fijo */
   height: 60px; /* Altura fija */
   font-size: 30px; /* Aumenta el tamaño del texto */
-  background-color: #f0f0f0;
+  background-color: #949494;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -34,9 +32,6 @@ button:hover {
 }
 
 .calculator-display {
-  width: 90vw; /* 90% del ancho de la pantalla */
-  max-width: 320px; /* Máximo de 600px de ancho */
-  height: 60px; /* Altura fija */
   margin: 0 auto -10px auto; /* Centrado y margen inferior */
   font-size: 30px; /* Tamaño del texto */
   text-align: right; /* Alineación del texto a la derecha */

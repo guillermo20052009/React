@@ -14,7 +14,7 @@ function ButtonPanel(props) {
   const columns = buttons[0].map((_, colIndex) => buttons.map(row => row[colIndex]));
 
   return (
-    <div className="button-panel">
+    <div className="d-flex flex-wrap justify-content-center mt-5">
       {columns.map((col, colIndex) => (
         <div className="button-column" key={colIndex}>
           {col.map((button, buttonIndex) => (
