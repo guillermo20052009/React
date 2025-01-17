@@ -1,0 +1,47 @@
+.button-panel {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en varias filas */
+    max-width: 350px; /* Máximo de 600px de ancho */
+    margin: 0 auto; /* Centrado del panel */
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Centra los botones verticalmente */
+  }
+  
+  .button-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los botones verticalmente */
+  }
+  
+  button {
+    width: 60px; /* Ancho fijo */
+    height: 60px; /* Altura fija */
+    font-size: 30px; /* Aumenta el tamaño del texto */
+    background-color: #949494;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px; /* Añade un margen para separar los botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  .calculator-display {
+    margin: 0 auto -10px auto; /* Centrado y margen inferior */
+    font-size: 30px; /* Tamaño del texto */
+    text-align: right; /* Alineación del texto a la derecha */
+    padding: 10px; /* Padding interno */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    background-color: #f0f0f0;
+    border: 2px solid #ccc; /* Borde */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  .orange-button {
+    background-color: orange;
+    color: white; /* Color del texto */
+  }
