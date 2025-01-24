@@ -1,3 +1,10 @@
+html, body {
+  height: auto; /* Permite crecer con el contenido */
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #282c34; /* Fondo que se extiende */
+}
 #root {
   margin: 0 auto;
   padding: 2rem;

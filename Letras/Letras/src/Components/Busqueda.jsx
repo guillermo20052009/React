@@ -6,9 +6,12 @@ import { useState } from "react";
 function Busqueda() {
   const [artist, setArtist] = useState("");
   const [song, setSong] = useState("");
+  const [isLoading, setIsLoading] = useState("Buscar");
 
 
   const fetchLyrics = async () => {
+    setIsLoading("Cargando...");
+    setTimeout(async () => {
       let condition = true;
       const response = await fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`);
       if (!response.ok) {
@@ -16,10 +19,12 @@ function Busqueda() {
         condition = false;
       }
       if (condition) {
-      const data = await response.json();
-      console.log(data.lyrics)
-      crearFila(data.lyrics);
+        const data = await response.json();
+        console.log(data.lyrics);
+        crearFila(data.lyrics);
       }
+      setIsLoading("Buscar");
+    }, 3000);
   };
 
   const crearFila = (lyrics) => {
@@ -64,7 +69,9 @@ function Busqueda() {
       </div>
       <div className="row mt-5">
         <div className="col-12">
-          <button className='btn btn-outline-warning rounded text-light' onClick={fetchLyrics}>Buscar</button>
+          <button className='btn btn-outline-warning rounded text-light' onClick={() => {
+            fetchLyrics();
+          }}>{isLoading}</button>
         </div>
       </div>
       <div className="row mt-5">
