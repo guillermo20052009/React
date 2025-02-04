@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TutorialDataService from '../services/tutorial.service'; // Importa el servicio
 
-function AddTutorial() {
+function EditTutorial(props) {
   // Estados para gestionar los datos del formulario
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -19,11 +19,11 @@ function AddTutorial() {
     };
 
     try {
-      // Llama al método create de TutorialDataService
-      await TutorialDataService.create(tutorialData);
+      // Llama al método update de TutorialDataService
+      await TutorialDataService.update(props.match.params.id, tutorialData);
 
       // Muestra mensaje de éxito
-      alert('Tutorial agregado con éxito');
+      alert('Tutorial actualizado con éxito');
       
       // Limpia el formulario si lo deseas
       setTitle('');
@@ -31,14 +31,32 @@ function AddTutorial() {
       setPublished(false);
     } catch (error) {
       // Maneja cualquier error
-      console.error('Error al agregar tutorial:', error);
-      alert('Error al agregar tutorial');
+      console.error('Error al actualizar tutorial:', error);
+      alert('Error al actualizar tutorial');
     }
   };
 
+  // Al cargar el componente, obtenemos los datos del tutorial a editar
+  useEffect(() => {
+    // Obtenemos el ID del tutorial desde los parámetros de la URL
+    const { id } = props.match.params;
+
+    // Llamamos al servicio para obtener el tutorial por ID
+    TutorialDataService.get(id)
+      .then(response => {
+        // Establecemos los valores en los estados
+        setTitle(response.data.title);
+        setDescription(response.data.description);
+        setPublished(response.data.published);
+      })
+      .catch(e => {
+        console.error('Error al obtener el tutorial:', e);
+      });
+  }, [props.match.params.id]); // Esto se ejecuta cada vez que el ID cambia
+
   return (
     <div className="container mt-4">
-      <h2>Add Tutorial</h2>
+      <h2>Edit Tutorial</h2>
       <form onSubmit={handleSubmit}>
         {/* Input para el título */}
         <div className="mb-3">
@@ -79,10 +97,10 @@ function AddTutorial() {
         </div>
 
         {/* Botón de enviar */}
-        <button type="submit" className="btn btn-primary mt-3">Add Tutorial</button>
+        <button type="submit" className="btn btn-primary mt-3">Update Tutorial</button>
       </form>
     </div>
   );
 }
 
-export default AddTutorial;
+export default EditTutorial;
